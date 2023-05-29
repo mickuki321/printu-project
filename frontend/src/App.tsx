@@ -1,3 +1,5 @@
+import {Home} from 'src/components/views/home';
+
 const App = (): JSX.Element => (
 	<div className='App'>
 		<header className='App-header'>
@@ -8,6 +10,7 @@ const App = (): JSX.Element => (
 				rel='noopener noreferrer'
 			>
                 test
+				<Home/>
 			</a>
 		</header>
 	</div>

@@ -7,6 +7,7 @@ module.exports = {
 		'plugin:react/recommended',
 		'xo',
 	],
+	parser: '@typescript-eslint/parser',
 	overrides: [
 		{
 			extends: [
@@ -16,16 +17,22 @@ module.exports = {
 				'*.ts',
 				'*.tsx',
 			],
+			rules: {
+				'react/react-in-jsx-scope': 'off',
+				'@typescript-eslint/no-floating-promises': 'off',
+				'@typescript-eslint/naming-convention': 'off',
+			},
 		},
 	],
 	parserOptions: {
+		tsconfigRootDir: __dirname,
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
 	plugins: [
 		'react',
+		'@typescript-eslint',
 	],
-	rules: {
-		'react/react-in-jsx-scope': 'off',
-	},
+
+	root: true,
 };
