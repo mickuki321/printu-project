@@ -6,7 +6,8 @@ type Props = {
 };
 
 export const Record = ({label, value}: Props) => (
-	<Flex>
-		<Text w='100px' fontWeight={700} m={0}>{label}</Text> <Text m={0}>{value}</Text>
+	<Flex justifyContent='flex-start' w='100%'>
+		<Text w='200px' fontWeight={700} m={0} mr={6}>{label}</Text> <Text m={0} w='100%'
+			wordBreak='break-word'>{value}</Text>
 	</Flex>
 );

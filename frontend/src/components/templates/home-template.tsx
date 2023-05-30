@@ -1,7 +1,7 @@
 import {Box, Flex} from '@chakra-ui/react';
 import {type ProjectInterface} from 'src/interfaces/project.interface';
 import {type Dispatch, useState} from 'react';
-import {ItemMenu, SearchBox} from 'src/components/organisms';
+import {ItemMenu, ProjectDetailsBox, SearchBox} from 'src/components/organisms';
 import {type ItemsComponentInterface} from 'src/interfaces/items-component.interface';
 import {ProjectPlan} from 'src/components/organisms';
 
@@ -34,6 +34,7 @@ export const HomeTemplate = ({projectData, searchValue, handlerSearch, setSearch
 			{itemsComponentProps && <ProjectPlan {...itemsComponentProps}/>}
 			<Box>
 				<SearchBox searchValue={searchValue} handlerSearch={handlerSearch} setSearchValue={setSearchValue}/>
+				{projectData && <ProjectDetailsBox projectData={projectData}/>}
 				{itemsComponentProps && <ItemMenu {...itemsComponentProps}/>}
 			</Box>
 		</Flex>
