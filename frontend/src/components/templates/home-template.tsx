@@ -28,9 +28,9 @@ export const HomeTemplate = ({projectData}: Props) => {
 	};
 
 	return (
-		<Flex>
-			<ItemMenu {...itemsComponentProps}/>
+		<Flex h='calc(100vh - 90px)'>
 			<ProjectPlan {...itemsComponentProps}/>
+			<ItemMenu {...itemsComponentProps}/>
 		</Flex>
 	);
 };

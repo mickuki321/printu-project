@@ -12,7 +12,7 @@ type Props = {
 
 export const ItemCard = ({item, isHovered, mouseMouseOut, mouseOverItem}: Props) => (
 	<CardBox isHovered={isHovered} onMouseOut={mouseMouseOut} onMouseOver={mouseOverItem}>
-		<Center w={'150px'} borderRight='1px solid' borderColor='black.500'>
+		<Center w={'180px'} borderRight='1px solid' borderColor='gray.300' p={4}>
 			<svg height={'100px'} width={'100px'}
 				viewBox={`0 0 ${item.width + 100} ${item.height + 100}`}>
 				<GeometricFigure item={{
@@ -22,7 +22,7 @@ export const ItemCard = ({item, isHovered, mouseMouseOut, mouseOverItem}: Props)
 				}}/>
 			</svg>
 		</Center>
-		<Box ml={6}>
+		<Box p={4}>
 			<Record label='Id' value={item.id}/>
 			<Record label='Type' value={item.type}/>
 			<Record label='Color' value={item.color}/>

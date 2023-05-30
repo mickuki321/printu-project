@@ -1,4 +1,4 @@
-import {HeaderBox} from 'src/components/atoms';
+import {HeaderBox, PageTitle} from 'src/components/atoms';
 import {Box} from '@chakra-ui/react';
 
 type Props = {
@@ -6,9 +6,11 @@ type Props = {
 };
 
 export const Header = ({children}: Props) => (
-	<Box pt={'70px'}>
+	<Box pt={'70px'} maxH={'100vh'}>
 		<HeaderBox>
-            Printu-Project
+			<PageTitle>
+                Printu-Project
+			</PageTitle>
 		</HeaderBox>
 		{children}
 	</Box>

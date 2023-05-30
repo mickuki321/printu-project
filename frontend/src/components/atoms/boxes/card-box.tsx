@@ -6,9 +6,10 @@ type Props = {
 };
 
 export const CardBox = ({children, isHovered, ...arg}: Props & BoxProps) => (
-	<Flex w='400px' border='1px solid' borderColor={isHovered ? 'red' : 'blackAlpha.500'} borderRadius={4} p={6}
+	<Flex w='400px' border='1px solid' borderColor={isHovered ? 'red' : 'gray.300'} boxShadow='sm'
+		borderRadius={4}
 		cursor={isHovered ? 'pointer' : undefined}
-		m={6} {...arg}>
+		m={4} {...arg}>
 		{children}
 	</Flex>
 );
