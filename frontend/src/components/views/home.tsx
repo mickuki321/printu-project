@@ -1,15 +1,17 @@
 import {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
-import {getProject, getProjectInit} from '../../api/project';
-import {type ProjectInterface} from '../../interfaces/project.interface';
+import {getProjectInit} from '../../api/project';
 import {HomeTemplate} from '../templates';
 import {SpinnerScreen} from '../organisms';
+import {fetchProject} from 'src/redux/features/project-reducer';
 
 export const Home = () => {
-	const [projectData, setProjectData] = useState<ProjectInterface>();
 	const [searchValue, setSearchValue] = useState<string>('');
 	const [isLoading, setIsLoading] = useState<boolean>(false);
-
+	const projectData = useSelector(state => state);
+	const dispatch = useDispatch();
+	console.log(projectData);
 	const init = async () => {
 		setIsLoading(true);
 		const id = await getProjectId();
@@ -17,10 +19,7 @@ export const Home = () => {
 			return;
 		}
 
-		const response = await getProject({id});
-		if (response) {
-			setProjectData(response);
-		}
+		dispatch(fetchProject(id));
 
 		setIsLoading(false);
 	};
@@ -44,7 +43,8 @@ export const Home = () => {
 
 	return (
 		<>
-			<HomeTemplate projectData={projectData} searchValue={searchValue} handlerSearch={handlerSearch}
+			<HomeTemplate projectData={undefined} searchValue={searchValue}
+				handlerSearch={handlerSearch}
 				setSearchValue={setSearchValue}/>
 			{isLoading && <SpinnerScreen/>}
 		</>
