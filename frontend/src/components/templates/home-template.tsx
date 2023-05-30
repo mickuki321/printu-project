@@ -1,9 +1,10 @@
-import {Flex} from '@chakra-ui/react';
+import {Box, Flex} from '@chakra-ui/react';
 import {type ProjectInterfaceInterface} from 'src/interfaces/project.interface';
 import {useState} from 'react';
 import {ItemMenu} from 'src/components/organisms/item-menu';
 import {type ItemsComponentInterface} from 'src/interfaces/items-component.interface';
 import {ProjectPlan} from 'src/components/organisms/project-plan';
+import {SearchBox} from 'src/components/organisms/search-box';
 
 type Props = {
 	projectData: ProjectInterfaceInterface;
@@ -30,7 +31,10 @@ export const HomeTemplate = ({projectData}: Props) => {
 	return (
 		<Flex h='calc(100vh - 90px)'>
 			<ProjectPlan {...itemsComponentProps}/>
-			<ItemMenu {...itemsComponentProps}/>
+			<Box>
+				<SearchBox/>
+				<ItemMenu {...itemsComponentProps}/>
+			</Box>
 		</Flex>
 	);
 };
