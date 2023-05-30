@@ -1,27 +1,44 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 
-import {getProject} from '../../api/project';
-import {type ProjectInterfaceInterface} from '../../interfaces/project.interface';
+import {getProject, getProjectInit} from '../../api/project';
+import {type ProjectInterface} from '../../interfaces/project.interface';
 import {HomeTemplate} from 'src/components/templates/home-template';
 
 export const Home = () => {
-	const [projectData, setProjectData] = useState<ProjectInterfaceInterface>();
-	useEffect(() => {
-		const init = async () => {
-			const response = await getProject({id: 'clia8pzxt000008mmgfx46x88-9154506585035734'});
-			if (response) {
-				setProjectData(response);
-			}
-		};
+	const [projectData, setProjectData] = useState<ProjectInterface>();
+	const [searchValue, setSearchValue] = useState<string>('');
 
-		if (!projectData) {
-			init();
+	const init = async () => {
+		const id = await getProjectId();
+		if (!id) {
+			return;
 		}
-	}, [projectData]);
+
+		const response = await getProject({id});
+		if (response) {
+			setProjectData(response);
+		}
+	};
+
+	const handlerSearch = () => {
+		init();
+	};
+
+	const getProjectId = async () => {
+		if (searchValue) {
+			return searchValue;
+		}
+
+		const responseInit = await getProjectInit();
+		if (!responseInit) {
+			return false;
+		}
+
+		return responseInit.id;
+	};
 
 	return (
-		<>
-			{projectData && <HomeTemplate projectData={projectData}/>}
-		</>
+		<HomeTemplate projectData={projectData} searchValue={searchValue} handlerSearch={handlerSearch}
+			setSearchValue={setSearchValue}/>
 	);
 };

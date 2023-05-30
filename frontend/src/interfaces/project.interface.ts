@@ -17,7 +17,13 @@ export type ProjectDetailsInterface = {
 	items: ProjectItemInterface[];
 };
 
-export type ProjectInterfaceInterface = {
+export type ProjectInterface = {
 	id: 'string';
 	project: ProjectDetailsInterface;
+};
+
+export type ProjectInitInterface = {
+	id: 'string';
+	name: string;
+	modified: number;
 };
