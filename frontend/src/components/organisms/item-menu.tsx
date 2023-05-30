@@ -1,5 +1,5 @@
 import {Box} from '@chakra-ui/react';
-import {ItemCard} from 'src/components/moleclues/item-card';
+import {ItemCard} from 'src/components/moleclues';
 import {type ItemsComponentInterface} from 'src/interfaces/items-component.interface';
 
 export const ItemMenu = ({project, indexSelectedItem, mouseOverItem, mouseMouseOut}: ItemsComponentInterface) => (

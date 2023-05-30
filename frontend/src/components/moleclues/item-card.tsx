@@ -1,7 +1,6 @@
 import {type ProjectItemInterface} from 'src/interfaces/project.interface';
-import {CardBox, Record} from 'src/components/atoms';
+import {CardBox, Record, GeometricFigure} from 'src/components/atoms';
 import {Box, Center} from '@chakra-ui/react';
-import {GeometricFigure} from 'src/components/atoms/svg-components/geometric-figure';
 
 type Props = {
 	item: ProjectItemInterface;

@@ -2,8 +2,8 @@ import {useState} from 'react';
 
 import {getProject, getProjectInit} from '../../api/project';
 import {type ProjectInterface} from '../../interfaces/project.interface';
-import {HomeTemplate} from 'src/components/templates/home-template';
-import {SpinnerScreen} from 'src/components/organisms/spinner-screen';
+import {HomeTemplate} from '../templates';
+import {SpinnerScreen} from '../organisms';
 
 export const Home = () => {
 	const [projectData, setProjectData] = useState<ProjectInterface>();

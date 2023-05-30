@@ -1,5 +1,5 @@
 import {Center} from '@chakra-ui/react';
-import {Item} from '../moleclues/item';
+import {Item} from '../moleclues';
 import {type ItemsComponentInterface} from 'src/interfaces/items-component.interface';
 
 export const ProjectPlan = ({project, indexSelectedItem, mouseOverItem, mouseMouseOut}: ItemsComponentInterface) => (

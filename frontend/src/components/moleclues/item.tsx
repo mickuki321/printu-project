@@ -1,6 +1,5 @@
 import {type ProjectItemInterface} from 'src/interfaces/project.interface';
-import {Contour, LabelFigure, Point} from '../atoms';
-import {GeometricFigure} from 'src/components/atoms/svg-components/geometric-figure';
+import {Contour, LabelFigure, Point, GeometricFigure} from '../atoms';
 
 type Props = {
 	item: ProjectItemInterface;

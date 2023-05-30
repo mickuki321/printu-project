@@ -1,10 +1,9 @@
 import {Box, Flex} from '@chakra-ui/react';
 import {type ProjectInterface} from 'src/interfaces/project.interface';
 import {type Dispatch, useState} from 'react';
-import {ItemMenu} from 'src/components/organisms/item-menu';
+import {ItemMenu, SearchBox} from 'src/components/organisms';
 import {type ItemsComponentInterface} from 'src/interfaces/items-component.interface';
-import {ProjectPlan} from 'src/components/organisms/project-plan';
-import {SearchBox} from 'src/components/organisms/search-box';
+import {ProjectPlan} from 'src/components/organisms';
 
 type Props = {
 	projectData?: ProjectInterface;
