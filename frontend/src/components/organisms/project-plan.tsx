@@ -1,22 +1,21 @@
-import {type ProjectDetailsInterface} from 'src/interfaces/project.interface';
 import {Center} from '@chakra-ui/react';
 import {Item} from '../moleclues/item';
+import {type ItemsComponentInterface} from 'src/interfaces/items-component.interface';
 
-type Props = {
-	project: ProjectDetailsInterface;
-	indexSelectedItem?: number;
-};
-
-export const ProjectPlan = ({project}: Props) => (
+export const ProjectPlan = ({project, indexSelectedItem, mouseOverItem, mouseMouseOut}: ItemsComponentInterface) => (
 	<Center width={'100%'} maxH={'80vh'} style={{backgroundColor: 'red'}}>
-		<rect fill='#efefef' width='100%' height='100%' style={{backgroundColor: '#ffffff'}}>
+		{project && <rect fill='#efefef' width='100%' height='100%' style={{backgroundColor: '#ffffff'}}>
 			<svg height={'80vh'}
 				viewBox={`0 0 ${project.width} ${project.height}`}>
 				{project?.items.map((item, i) => (
-					<Item item={item} key={i}/>
+					<Item item={item} key={i} isHovered={i === indexSelectedItem} mouseMouseOut={mouseMouseOut}
+						mouseOverItem={() => {
+							mouseOverItem(i);
+						}}/>
 				))}
+				<use xlinkHref='#one'/>
 			</svg>
-		</rect>
+		</rect>}
 
 	</Center>
 

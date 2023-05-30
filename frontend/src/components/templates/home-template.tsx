@@ -30,7 +30,7 @@ export const HomeTemplate = ({projectData}: Props) => {
 	return (
 		<Flex>
 			<ItemMenu {...itemsComponentProps}/>
-			{itemsComponentProps && <ProjectPlan project={project} indexSelectedItem={indexSelectedItem}/>}
+			<ProjectPlan {...itemsComponentProps}/>
 		</Flex>
 	);
 };
