@@ -8,5 +8,5 @@ export const LabelFigure = ({item}: Props) => (
 	<text
 		x={item.x + 2}
 		y={item.y + 2}
-	>test</text>
+	>{item.rotation}</text>
 );
