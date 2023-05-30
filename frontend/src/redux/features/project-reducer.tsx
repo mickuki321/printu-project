@@ -1,19 +1,25 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {getProject} from 'src/api/project';
+import {type ProjectInterface} from 'src/interfaces/project.interface';
 
+export type StateInterface = {
+	value?: ProjectInterface;
+};
+
+const INITIAL_STATE: StateInterface = {
+	value: undefined,
+};
 export const projectSlice = createSlice({
 	name: 'counter',
-	initialState: {},
+	initialState: {...INITIAL_STATE},
 	reducers: {
-		async fetchProject(state, action) {
-			const response = await getProject({id: action.payload});
-			if (response) {
-				state = response;
+		saveProject(state: StateInterface, action) {
+			if (action.payload) {
+				state.value = action.payload as ProjectInterface;
 			}
 		},
 	},
 });
 
-export const {fetchProject} = projectSlice.actions;
+export const {saveProject} = projectSlice.actions;
 
 export default projectSlice.reducer;
