@@ -3,12 +3,15 @@ import {useState} from 'react';
 import {getProject, getProjectInit} from '../../api/project';
 import {type ProjectInterface} from '../../interfaces/project.interface';
 import {HomeTemplate} from 'src/components/templates/home-template';
+import {SpinnerScreen} from 'src/components/organisms/spinner-screen';
 
 export const Home = () => {
 	const [projectData, setProjectData] = useState<ProjectInterface>();
 	const [searchValue, setSearchValue] = useState<string>('');
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 
 	const init = async () => {
+		setIsLoading(true);
 		const id = await getProjectId();
 		if (!id) {
 			return;
@@ -18,6 +21,8 @@ export const Home = () => {
 		if (response) {
 			setProjectData(response);
 		}
+
+		setIsLoading(false);
 	};
 
 	const handlerSearch = () => {
@@ -38,7 +43,10 @@ export const Home = () => {
 	};
 
 	return (
-		<HomeTemplate projectData={projectData} searchValue={searchValue} handlerSearch={handlerSearch}
-			setSearchValue={setSearchValue}/>
+		<>
+			<HomeTemplate projectData={projectData} searchValue={searchValue} handlerSearch={handlerSearch}
+				setSearchValue={setSearchValue}/>
+			{isLoading && <SpinnerScreen/>}
+		</>
 	);
 };
