@@ -2,25 +2,27 @@ import {useEffect, useState} from 'react';
 
 import {getProject} from '../../api/project';
 import {Box} from '@chakra-ui/react';
-import {type ProjectInterfaceInterface} from 'src/interfaces/project.interface';
+import {type ProjectInterfaceInterface} from '../../interfaces/project.interface';
+import {ProjectPlan} from '../../components/organisms/project-plan';
 
 export const Home = () => {
-	const [project, setProject] = useState<ProjectInterfaceInterface>();
-	console.log(project);
+	const [projectData, setProjectData] = useState<ProjectInterfaceInterface>();
 	useEffect(() => {
 		const init = async () => {
-			const response = await getProject({id: 'cli96tmcb000908mfaamjbple-8184267581641393'});
+			const response = await getProject({id: 'clia8pzxt000008mmgfx46x88-9154506585035734'});
 			if (response) {
-				setProject(response);
+				setProjectData(response);
 			}
 		};
 
-		if (!project) {
+		if (!projectData) {
 			init();
 		}
-	}, [project]);
+	}, [projectData]);
 
-	return <Box>
-
-	</Box>;
+	return (
+		<Box>
+			{projectData?.project && <ProjectPlan project={projectData.project}/>}
+		</Box>
+	);
 };

@@ -1,12 +1,12 @@
 export type ProjectItemInterface = {
 	id: 'string';
-	type: 'rectange' | 'ellipse';
+	type: 'rectangle' | 'ellipse';
 	color: 'string';
-	rotation: 'number';
-	x: 'number';
-	y: 'number';
-	width: 'number';
-	height: 'number';
+	rotation: number;
+	x: number;
+	y: number;
+	width: number;
+	height: number;
 };
 
 export type ProjectDetailsInterface = {
@@ -14,7 +14,7 @@ export type ProjectDetailsInterface = {
 	name: 'string';
 	width: 'string';
 	height: 'string';
-	items: ProjectItemInterface;
+	items: ProjectItemInterface[];
 };
 
 export type ProjectInterfaceInterface = {
