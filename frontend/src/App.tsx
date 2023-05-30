@@ -1,11 +1,11 @@
 import {Home} from 'src/components/views/home';
+import {Header} from 'src/components/organisms/header';
 
 const App = (): JSX.Element => (
 	<div className='App'>
-		<header className='App-header'>
-
+		<Header>
 			<Home/>
-		</header>
+		</Header>
 	</div>
 );
 

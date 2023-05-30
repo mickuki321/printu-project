@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 
 import {getProject} from '../../api/project';
-import {Box} from '@chakra-ui/react';
 import {type ProjectInterfaceInterface} from '../../interfaces/project.interface';
 import {HomeTemplate} from 'src/components/templates/home-template';
 
@@ -21,8 +20,8 @@ export const Home = () => {
 	}, [projectData]);
 
 	return (
-		<Box>
+		<>
 			{projectData && <HomeTemplate projectData={projectData}/>}
-		</Box>
+		</>
 	);
 };
