@@ -4,7 +4,7 @@ import {getProject} from 'src/api/project';
 import {saveProject} from './features/project-reducer';
 import {type ProjectInterface} from 'src/interfaces/project.interface';
 
-function * fetchProject(action: AnyAction): Generator<StrictEffect, any, ProjectInterface | false> {
+function * fetchProject(action: AnyAction): Generator<StrictEffect, void, ProjectInterface | false> {
 	try {
 		const project = yield call(getProject, {id: action.payload as string});
 		yield put(saveProject(project));

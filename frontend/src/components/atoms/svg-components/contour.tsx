@@ -1,8 +1,8 @@
 import {type ProjectItemInterface} from 'src/interfaces/project.interface';
 
-type Props = {
+interface Props {
 	item: ProjectItemInterface;
-};
+}
 
 const degreesToRadians = (degrees: number) => {
 	const pi = Math.PI;

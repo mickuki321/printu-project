@@ -5,12 +5,12 @@ import {ItemMenu, ProjectDetailsBox, SearchBox} from 'src/components/organisms';
 import {type ItemsComponentInterface} from 'src/interfaces/items-component.interface';
 import {ProjectPlan} from 'src/components/organisms';
 
-type Props = {
+interface Props {
 	projectData?: ProjectInterface;
 	searchValue: string;
 	setSearchValue: Dispatch<string>;
 	handlerSearch: () => void;
-};
+}
 
 export const HomeTemplate = ({projectData, searchValue, handlerSearch, setSearchValue}: Props) => {
 	const [indexSelectedItem, setIndexSelectedItem] = useState<number>();

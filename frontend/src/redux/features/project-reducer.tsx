@@ -1,9 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {type ProjectInterface} from 'src/interfaces/project.interface';
 
-export type StateInterface = {
+export interface StateInterface {
 	value?: ProjectInterface;
-};
+}
 
 const INITIAL_STATE: StateInterface = {
 	value: undefined,

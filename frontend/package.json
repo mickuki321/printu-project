@@ -31,7 +31,7 @@
     "docker-build": "docker build -f Dockerfile -t client .",
     "docker-start": "docker run -it -p 3000:3000 client",
     "lint": "eslint \"**/*.{ts,tsx}\"",
-    "lint:fix": "eslint - fix src/**/*.{ts,tsx,}",
+    "lint:fix": "eslint --fix \"**/*.{ts,tsx}\"",
     "format": "prettier - write src/**/*.{ts,tsx,} - config .prettierrc.json"
   },
   "eslintConfig": {

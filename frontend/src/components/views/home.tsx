@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {useDispatch} from 'react-redux';
 
-import {getProjectInit} from '../../api/project';
+import {getProjectInit} from 'src/api/project';
 import {HomeTemplate} from '../templates';
 import {SpinnerScreen} from '../organisms';
 import {useSelector} from 'src/redux/store';

@@ -1,8 +1,8 @@
 import {type ProjectItemInterface} from 'src/interfaces/project.interface';
 
-type Props = {
+interface Props {
 	item: ProjectItemInterface;
-};
+}
 
 export const Point = ({item}: Props) => (
 	<circle
