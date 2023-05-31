@@ -10,15 +10,15 @@ const degreesToRadians = (degrees: number) => {
 };
 
 const calculateRelativeSideLength = (width: number, height: number, rotation: number) =>
-	height * Math.sin(degreesToRadians(rotation % 90))
-    + width * Math.cos(degreesToRadians(rotation % 90));
+	(height * Math.sin(degreesToRadians(rotation % 90)))
+    + (width * Math.cos(degreesToRadians(rotation % 90)));
 
 const calculateRelativeDimensions = (width: number, height: number, rotation: number) => {
 	const firstLength = calculateRelativeSideLength(height, width, rotation);
 	const secondLength = calculateRelativeSideLength(width, height, rotation);
 	const isRotated = Math.floor(rotation / 90) / 2 === 1;
 	return ({
-		width: !isRotated ? firstLength : secondLength,
+		width: isRotated ? secondLength : firstLength,
 		height: isRotated ? firstLength : secondLength,
 	});
 };
