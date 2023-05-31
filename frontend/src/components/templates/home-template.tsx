@@ -32,7 +32,7 @@ export const HomeTemplate = ({projectData, searchValue, handlerSearch, setSearch
 	return (
 		<Flex h='calc(100vh - 90px)' justifyContent='flex-end'>
 			{itemsComponentProps && <ProjectPlan {...itemsComponentProps}/>}
-			<Box>
+			<Box h='100%'>
 				<SearchBox searchValue={searchValue} handlerSearch={handlerSearch} setSearchValue={setSearchValue}/>
 				{projectData && <ProjectDetailsBox projectData={projectData}/>}
 				{itemsComponentProps && <ItemMenu {...itemsComponentProps}/>}

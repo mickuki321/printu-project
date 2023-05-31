@@ -1,7 +1,7 @@
 export interface ProjectItemInterface {
-	id: 'string';
+	id: string;
 	type: 'rectangle' | 'ellipse';
-	color: 'string';
+	color: string;
 	rotation: number;
 	x: number;
 	y: number;
@@ -10,20 +10,20 @@ export interface ProjectItemInterface {
 }
 
 export interface ProjectDetailsInterface {
-	id: 'string';
-	name: 'string';
-	width: 'string';
-	height: 'string';
+	id: string;
+	name: string;
+	width: number;
+	height: number;
 	items: ProjectItemInterface[];
 }
 
 export interface ProjectInterface {
-	id: 'string';
+	id: string;
 	project: ProjectDetailsInterface;
 }
 
 export interface ProjectInitInterface {
-	id: 'string';
+	id: string;
 	name: string;
 	modified: number;
 }
