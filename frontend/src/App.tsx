@@ -1,5 +1,5 @@
-import {Home} from 'src/components/views/home';
-import {Header} from 'src/components/organisms';
+import {Home} from './components/views/home';
+import {Header} from './components/organisms';
 
 const App = (): JSX.Element => (
 	<div className='App'>

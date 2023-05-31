@@ -1,9 +1,9 @@
 import {Flex, Text} from '@chakra-ui/react';
 
-type Props = {
+interface Props {
 	label: string;
 	value: string | number;
-};
+}
 
 export const Record = ({label, value}: Props) => (
 	<Flex justifyContent='flex-start' w='100%'>

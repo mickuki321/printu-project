@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-scripts": "^5.0.1",
+    "redux-saga": "^1.2.3",
     "web-vitals": "^3.3.2"
   },
   "scripts": {
@@ -30,7 +31,7 @@
     "docker-build": "docker build -f Dockerfile -t client .",
     "docker-start": "docker run -it -p 3000:3000 client",
     "lint": "eslint \"**/*.{ts,tsx}\"",
-    "lint:fix": "eslint - fix src/**/*.{ts,tsx,}",
+    "lint:fix": "eslint --fix \"**/*.{ts,tsx}\"",
     "format": "prettier - write src/**/*.{ts,tsx,} - config .prettierrc.json"
   },
   "eslintConfig": {

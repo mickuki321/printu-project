@@ -1,30 +1,24 @@
-import axios from 'axios';
-
+import axios, {type AxiosError, type AxiosResponse} from 'axios';
 import {API_INIT, API_PRINTU, API_PROJECT} from 'src/constans/api-paths';
 import {type ProjectInitInterface, type ProjectInterface} from 'src/interfaces/project.interface';
+import {toastError, type ToastType} from 'src/common/errors';
 
 export const getProject = async ({
-	id,
-}: {id: string}) => {
-	try {
-		const response = await axios.get(
-			`${API_PRINTU}${API_PROJECT}/${id}`,
-		);
-		return response.data as ProjectInterface;
-	} catch (error) {
+	id, toast,
+}: {id: string; toast: ToastType}) => axios.get(
+	`${API_PRINTU}${API_PROJECT}/${id}`,
+)
+	.then((response: AxiosResponse<ProjectInterface>) => response.data)
+	.catch((e: AxiosError<{message?: string}>) => {
+		toastError(toast, e);
 		return false;
-		// CatchError({error, toast, navigate, errorCallback});
-	}
-};
+	});
 
-export const getProjectInit = async () => {
-	try {
-		const response = await axios.get(
-			`${API_PRINTU}${API_INIT}`,
-		);
-		return response.data as ProjectInitInterface;
-	} catch (error) {
+export const getProjectInit = async (toast: ToastType): Promise<ProjectInitInterface | false> => axios.get(
+	`${API_PRINTU}${API_INIT}`,
+)
+	.then((response: AxiosResponse<ProjectInitInterface>) => response.data)
+	.catch((e: AxiosError<{message?: string}>) => {
+		toastError(toast, e);
 		return false;
-		// CatchError({error, toast, navigate, errorCallback});
-	}
-};
+	});

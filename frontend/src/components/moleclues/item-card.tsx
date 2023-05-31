@@ -2,12 +2,12 @@ import {type ProjectItemInterface} from 'src/interfaces/project.interface';
 import {CardBox, Record, GeometricFigure} from 'src/components/atoms';
 import {Box, Center} from '@chakra-ui/react';
 
-type Props = {
+interface Props {
 	item: ProjectItemInterface;
 	isHovered: boolean;
 	mouseMouseOut: () => void;
 	mouseOverItem: () => void;
-};
+}
 
 export const ItemCard = ({item, isHovered, mouseMouseOut, mouseOverItem}: Props) => (
 	<CardBox isHovered={isHovered} onMouseOut={mouseMouseOut} onMouseOver={mouseOverItem}>
