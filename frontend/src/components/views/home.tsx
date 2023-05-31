@@ -1,14 +1,18 @@
 import {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {useToast} from '@chakra-ui/react';
 
-import {getProject, getProjectInit} from '../../api/project';
-import {type ProjectInterface} from '../../interfaces/project.interface';
+import {getProjectInit} from 'src/api/project';
 import {HomeTemplate} from '../templates';
 import {SpinnerScreen} from '../organisms';
+import {useSelector} from 'src/redux/store';
 
 export const Home = () => {
-	const [projectData, setProjectData] = useState<ProjectInterface>();
 	const [searchValue, setSearchValue] = useState<string>('');
 	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const projectData = useSelector(state => state.project.value);
+	const dispatch = useDispatch();
+	const toast = useToast();
 
 	const init = async () => {
 		setIsLoading(true);
@@ -17,10 +21,7 @@ export const Home = () => {
 			return;
 		}
 
-		const response = await getProject({id});
-		if (response) {
-			setProjectData(response);
-		}
+		dispatch({type: 'PROJECT_FETCH_REQUESTED', payload: {id, toast}});
 
 		setIsLoading(false);
 	};
@@ -34,7 +35,7 @@ export const Home = () => {
 			return searchValue;
 		}
 
-		const responseInit = await getProjectInit();
+		const responseInit = await getProjectInit(toast);
 		if (!responseInit) {
 			return false;
 		}
@@ -44,7 +45,8 @@ export const Home = () => {
 
 	return (
 		<>
-			<HomeTemplate projectData={projectData} searchValue={searchValue} handlerSearch={handlerSearch}
+			<HomeTemplate projectData={projectData} searchValue={searchValue}
+				handlerSearch={handlerSearch}
 				setSearchValue={setSearchValue}/>
 			{isLoading && <SpinnerScreen/>}
 		</>

@@ -6,6 +6,7 @@
     "@chakra-ui/react": "^2.6.1",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
+    "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
@@ -17,7 +18,9 @@
     "framer-motion": "^10.12.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
     "react-scripts": "^5.0.1",
+    "redux-saga": "^1.2.3",
     "web-vitals": "^3.3.2"
   },
   "scripts": {
@@ -28,7 +31,7 @@
     "docker-build": "docker build -f Dockerfile -t client .",
     "docker-start": "docker run -it -p 3000:3000 client",
     "lint": "eslint \"**/*.{ts,tsx}\"",
-    "lint:fix": "eslint - fix src/**/*.{ts,tsx,}",
+    "lint:fix": "eslint --fix \"**/*.{ts,tsx}\"",
     "format": "prettier - write src/**/*.{ts,tsx,} - config .prettierrc.json"
   },
   "eslintConfig": {

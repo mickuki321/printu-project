@@ -21,6 +21,7 @@ module.exports = {
 				'react/react-in-jsx-scope': 'off',
 				'@typescript-eslint/no-floating-promises': 'off',
 				'@typescript-eslint/naming-convention': 'off',
+				'@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
 			},
 		},
 	],

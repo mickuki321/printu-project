@@ -1,8 +1,8 @@
 import {type BoxProps, Center} from '@chakra-ui/react';
 
-type Props = {
+interface Props {
 	children: JSX.Element | JSX.Element[] | string | string[];
-};
+}
 
 export const HeaderBox = ({children, ...arg}: Props & BoxProps) => (
 	<Center h='70px' position='absolute' top={0} left={0} width='100%' borderBottom='1px solid'

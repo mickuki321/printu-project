@@ -2,11 +2,11 @@ import {Input, Button} from '@chakra-ui/react';
 import {CardBox} from 'src/components/atoms';
 import {type Dispatch, type ChangeEvent} from 'react';
 
-type Props = {
+interface Props {
 	searchValue: string;
 	setSearchValue: Dispatch<string>;
 	handlerSearch: () => void;
-};
+}
 export const SearchBox = ({searchValue, handlerSearch, setSearchValue}: Props) => {
 	const handlerSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
 		setSearchValue(e.target.value);

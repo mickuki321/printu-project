@@ -1,4 +1,4 @@
-export type ProjectItemInterface = {
+export interface ProjectItemInterface {
 	id: 'string';
 	type: 'rectangle' | 'ellipse';
 	color: 'string';
@@ -7,23 +7,23 @@ export type ProjectItemInterface = {
 	y: number;
 	width: number;
 	height: number;
-};
+}
 
-export type ProjectDetailsInterface = {
+export interface ProjectDetailsInterface {
 	id: 'string';
 	name: 'string';
 	width: 'string';
 	height: 'string';
 	items: ProjectItemInterface[];
-};
+}
 
-export type ProjectInterface = {
+export interface ProjectInterface {
 	id: 'string';
 	project: ProjectDetailsInterface;
-};
+}
 
-export type ProjectInitInterface = {
+export interface ProjectInitInterface {
 	id: 'string';
 	name: string;
 	modified: number;
-};
+}

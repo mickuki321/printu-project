@@ -1,9 +1,9 @@
 import {type ProjectItemInterface} from 'src/interfaces/project.interface';
 
-type Props = {
+interface Props {
 	item: ProjectItemInterface;
 
-};
+}
 
 export const RawEllipse = ({item}: Props) => {
 	const width = item.width / 2;
