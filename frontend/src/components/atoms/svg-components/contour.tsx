@@ -31,7 +31,7 @@ export const Contour = ({item}: Props) => {
 			fill='none'
 			strokeWidth='2'
 			strokeOpacity='0.4'
-			stroke='#ffffff'
+			stroke='#ff0000'
 			width={width}
 			height={height}
 			transform={`translate(${item.x - (width / 2)}, ${item.y - (height / 2)})`}
